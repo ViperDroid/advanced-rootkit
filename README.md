@@ -22,6 +22,23 @@ The rootkit consists of the following components:
 3. **Stealth Mechanisms**: Operates at the kernel level to avoid detection.
 
 ---
+## Link the object file using ld:
+
+
+ld -m elf_i386 rootkit.o -o rootkit
+Step 2: Test the Rootkit
+Run in QEMU:
+
+Use QEMU to test the rootkit in a virtual machine:
+
+qemu-system-x86_64 -kernel rootkit
+Verify File Hiding:
+
+Try writing, reading, or opening secret.txt. The rootkit will prevent these operations.
+
+
+
+---
 
 ## 🚀 Features
 - **Multiple Hooks**: Hooks `sys_write`, `sys_read`, and `sys_open`.
@@ -61,3 +78,18 @@ Before using this tool, ensure you have the following installed:
 1. Assemble the rootkit code using NASM:
    ```bash
    nasm -f elf32 rootkit.asm -o rootkit.o
+
+
+
+## ⚠️ Ethical Use Warning
+Legal Compliance: This tool is for educational purposes only. Do not use it for malicious activities. 🚫
+
+Authorization: Always obtain proper authorization before using this tool on any system. 🔐
+
+Testing Environment: Test the tool in a controlled environment, such as a virtual machine. 🖥️
+
+
+## 📜 License
+This project is licensed under the MIT License. See the LICENSE file for details.
+
+## Made with ❤️ by ViperDroid
